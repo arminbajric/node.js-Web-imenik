@@ -1,0 +1,230 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body
+{
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+
+	
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	padding-top: 0px;
+		padding-bottom: 0px;
+		margin-left: 0px;
+		margin-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	min-height: 100% !important;
+    height: 100%;
+	background-blend-mode:darken;
+	
+}
+#pozadina
+{
+src:url('https://www.pixelstalk.net/wp-content/uploads/2016/07/Desktop-Best-Plain-Photos.jpg');
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	z-index:-1;
+}
+.ver
+{
+	margin-top: 200px;
+}
+.ver-col
+{
+	margin-bottom: 15px;
+}
+.hor-col
+{
+	margin-left: 30%;
+}
+.blur
+{
+filter: blur(5px);
+  -webkit-filter: blur(5px);
+	opacity: 2;
+	background-blend-mode: darken;
+}
+
+.link
+{
+	text-decoration: none;
+}
+img
+{
+	background-blend-mode: darken;
+}
+.forma
+{
+	text-decoration: none;
+	align-self: center;
+	z-index: 10;
+}
+#omotac
+
+{
+	padding-top: 0px;
+		padding-bottom: 0px;
+		margin-left: 0px;
+		margin-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	min-height: 100% !important;
+    height: 100%;
+}
+a 
+{
+	text-decoration: none;
+	color: aliceblue;
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+}
+a:hover{
+	color: lightslategray;
+}
+#meni
+	{
+		position: fixed;
+		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+		width: 100%;
+		height: 80px;
+		text-decoration-color: aliceblue;
+		float: none;
+		padding-top: 0px;
+		padding-bottom: 20px;
+		margin-left: 0;
+		margin-top: 0;
+		margin-bottom: 10px;
+		z-index: 1;
+	}
+/* Vertikalna linija timeline-a */
+.vLinija {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+ 
+}
+
+.vlinija:after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: aqua;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+	
+}
+
+/* Okvir sadržaja*/
+.okvir {
+  padding: 10px 40px;
+  position: relative;
+ background-image: "http://1.bp.blogspot.com/_EAViqbzwc_s/TOZ1a38SSsI/AAAAAAAACUs/10BA5z6nosI/s1600/Leaning+Tower%252C+Pisa%252C+Italy+-+1600x1200+-+ID+20080+-+PREMIUM.jpg";
+ 
+	z-index: 0;
+}
+.sadrzaj:hover{
+	    animation: okvir 3s ;
+    animation-fill-mode: forwards;
+	transform: scale(1.05);
+}
+@keyframes okvir {
+	
+    from {background-color: lightslategray;}
+    to {background-color: brown;}
+	
+}
+
+
+
+
+
+.lijevo {
+  left: 0;
+	margin-left: 0;
+}
+
+.desno {
+  left: 50%;
+}
+
+.lijevo::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.desno::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+
+.desno::after {
+  left: -16px;
+}
+
+
+.sadrzaj {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  
+
+	
+}
+
+@media screen and (max-width: 600px) {
+
+  .vlinija::after {
+    left: 31px;
+  }
+
+
+  .okvir {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+
+  .okvir::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+
+  .lijevo::after, .desno::after {
+    left: 15px;
+  }
+
+
+  .desno {
+    left: 0%;
+  }
+}
