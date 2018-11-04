@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<script type="text/javascript" src="/portfolio.js"></script>
+ <script ></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/cookie.js"></script>
+	<script>
+	$(document).ready(function () {
+  // Listen to click event on the submit button
+  $('#potvrda').click(function (e) {
+
+    e.preventDefault();
+
+    var email = $('#email').val();
+
+	  
+
+    $.post('/forma', {
+      
+      email: email
+    }).complete(function() {
+        console.log('Success');
+      });
+  });
+});</script>
+	
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/portfolio.css">
+<title>Portfolio</title>
+</head>
+
+
+<body  style="background-color: lightslategray" >
+
+
+	<center>
+	<table width="80%" border="0"  cellpadding="1" class="meni1" >
+	<tr  bgcolor="brown" width="100%"   >
+	<th >
+		<table width="90%" align="center"  >
+			<tr class="meni" width="90%" align="center">
+				<th width="22.5%" div id="navi" onClick="otvoriLink('https://www.facebook.com/armin.bajric.353');" onMouseOver="promjeniBoju(this.id,'brown');" onMouseOut="vratiBoju(this.id,'brown');"  ><a class="link" href="https://www.facebook.com/armin.bajric.353" id="link1">Facebook profil</a></th>
+				<th   width="22.5%" div id="navi1" onClick="otvoriLink('https://twitter.com/BajricArmin')" onMouseOver="promjeniBoju(this.id,'brown');" onMouseOut="vratiBoju(this.id,'brown');" ><a class="link" href="https://twitter.com/BajricArmin" id="link2">Twitter profil   </a></th>
+				<th width="22.5%" div id="navi2" onClick="otvoriLink('https://github.com/arminbajric')" onMouseOver="promjeniBoju(this.id,'brown');" onMouseOut="vratiBoju(this.id,'brown');" ><a class="link" href="https://github.com/arminbajric" id="link3">GitHub profil</a></th>
+				<th width="22.5%" div id="navi3" onMouseOver="promjeniBoju(this.id,'brown');" onMouseOut="vratiBoju(this.id,'brown');" ><a class="link" href="mailto:bajric.armin.3t1@gmail.com" id="link4">Email me</a></th>
+			</tr>
+		
+			
+		</table>
+		</th>
+		</tr>
+		</table>
+</center>
+	
+<table align="center" width="100%" style="background-color: lightslategray;" >
+<tr width="90%" align="center">
+<th>
+
+  <table class="element"   >
+	  <tr class="element" ><th clas="element">Armin Bajrić</th></tr>
+	  <tr ><th clas="element">Gornje Dubrave bb,Živinice</th></tr>
+	  <tr ><th clas="element">E-mail: bajric.armin.3t1@gmail.com</th></tr>
+    <tr><th clas="element">Mob:062-462-884</th>
+    </tr>
+  </table>
+
+</th>
+</tr>
+</table>
+<center>
+<table class="bio" width="90%" >
+	<tr>
+		<th  class="bio" width="22.5%" height="50px">
+		Rođen 22.5.1993 g. u Tuzli.Prijavljen sa stalnim boravištem u opštini Živinice.
+		</th>
+		<th class="bio" width="22.5%" height="50px">Osnovnu školu ,od prvog do četvrtog razreda završio u Područnoj školi u Gornjim Dubravama.Od petog do osmog razreda u OŠ "Dubrave" u Donjim Dubravama 2008 godine.</th>
+		<th class="bio" width="22.5%" height="50px">Od 2008. do 2012. godine pohađao ETŠ Tuzla u Tuzli te stekao zvanje IT tehničar sa odličnim uspjehom iz maturskog rada naziva ADO.Net klase sa praktičnom primjenom na aplikaciji za Rent a car.</th>
+		<th class="bio" width="22.5%" height="50px">Od 2013. godine student Rudarsko - geološko - građevinskog fakulteta u Tuzli.Odsjek Građevinarstvo.Trenutno apsolvent pomenutog fakulteta.</th>
+		
+	</tr>
+</table>
+</center>
+	<hr> 
+	<div style="background-color:lightslategray">
+	<center>
+	<table width="80%">
+		<tr width="100%" >
+			<th class="projectsBlue">
+			<p align="left">Bild IT Projects:</p>
+				<ul  style="list-style-type:none">
+					<li class="linkB1"><a id="prvi"  href="#"></a></li>
+					<li class="linkB2"><a id="drugi"   href="#"></a></li>
+					<li class="linkB3"><a id="treci"  href="#"></a></li>
+					<li class="linkB4"><a id="cetvrti"  href="#"></a></li>
+					<p align="left">Zadaci rađeni tokom napredne obuke BILD IT trainee programa.Projekti obuhvataju OOP programiranje,I/O rad sa fajlovima,rad i manupulacija SQL baze podataka.</p>
+				</ul>
+			</th>
+			<th class="projectsOrange">
+				<p align="left" >Ostali samostalni projekti:</p>
+				<ul  style="list-style-type:none">
+					<li><a id="peti" href=""></a></li>
+					<li><a id="sesti" href=""></a></li>
+					<li><a id="sedmi" href=""></a></li>
+					<li><a id="osmi" href=""></a></li>
+				</ul>
+				<p>Samostalno osmišljeni i izrađeni projekti uglavnom obuhvataju Java Applet i Java Swing ali i rad sa bazama podataka,korištenje resursa sa interneta te podešavanja postavki računara preko CMD-a.</p>
+			</th>
+			<th class="projectsBlue">
+				<p>Ostalo</p>
+			</th>
+		</tr>
+	</table>
+	</center>
+	<center>
+	<div style="padding-left:" id="pretplata" align="center">
+		<p id="info" style="padding-left: 0%">Pretplatite se na novosti:</p>
+		<div style="padding-left: 15px"><form  id="subscribe" method="POST" onSubmit="login(event);"  ><input name="email" id="email" value="Vas email"  onFocus="ocisti();" type="email"><button type="button"  id="potvrda" name="potvrda" value="Potvrdi" onClick="potvrdiPretplatu();"   ></button></form></div>
+	</div>
+	</center>
+	<hr>
+	<div  id="skillTable">
+	<table  align="center" height="300"  >
+		<tr class="skill">
+			<th width="15%">
+				<p>Skill table</p>
+			</th>
+			<th width="60%">
+				<p>Under construction :D</p>
+			</th>
+		</tr>
+	</table>
+	</div>
+	<center>
+	<div id="about">
+		<p  style="padding-left: 20px">O meni... </p>
+		<p  style="padding-left: 50px">Student i aspolvent Rudarsko-geološko-građevinskog fakulteta u Tuzli na odsjeku za građevinarstvo.Veliki pobornik svih tehničkih nauka i ogranaka.Ukratko zaljublenik u sve stvari sa naglaskom na logiku.Trenutno pohađam BILD IT training naprednu obuku u Doboju.Poznavalac velikog broja tehnologija u IT sektoru što se pored programiranja odnosi i na područje automatike i robotike,te elektronike. </p>
+		
+	</div>
+	</center>
+	</div>
+	<center>
+	<div id="footer"></div>
+	</center>
+</body>
+</html>
