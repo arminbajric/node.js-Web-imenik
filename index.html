@@ -13,27 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="utf-8">
 <title>Untitled Document</title>
-<script>
-	$(document).ready(function () {
-  // Listen to click event on the submit button
-  $('#potvrda').click(function (e) {
 
-    e.preventDefault();
-
-    var email = $('#inputEmail3').val();
-    var password = $('#inputPassword3').val();
-
-
-    $.post('/userForm', {
-      
-		
-      email: email,
-		password:password
-    });
-	 
-  });
-});
-</script>
 </head>
 
 <body>
@@ -43,42 +23,46 @@
 <div class="d-flex justify-content-center">
 <div class="container-fluid">
 
-<form class="form-vertical align-middle ver">
+<form action ="/userForm" method="post" class="form-vertical align-middle ver">
  <div class="col-md-d ver-col hor-col ">Poštovani,da bi koristili imenik prvo se morate logovati ili registrirati.</div>
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 col-md-offset-3 ver-col ">Email</label>
         <div class="col-sm-4 ver-col">
             <input  name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
         </div>
-   
-   
+
+
         <label for="inputPassword3" class="col-sm-2 col-md-offset-3 ver-col">Password</label>
         <div class="col-sm-4 ver-col">
             <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
-       
+
     </div>
-   
+
         <div class="col-sm-offset-5 col-sm-3 ver-col">
             <div class="checkbox">
                 <label>
                     <input type="checkbox">Remember me
                 </label>
-           
+
         </div>
     </div>
-   
+
         <div class="col-sm-offset-5 col-sm-10">
-            <button type="submit" class="btn btn-success" id="potvrda">Sign in</button>
-             <button  class="btn btn-secondary">Sing up</button>
+            <button type="submit" class="btn btn-success" >Sign in</button>
+
+
         </div>
-        
+
 	</div>
+	</form>
+	<form action="/signUp" method ="get">
+ <div class="col-sm-offset-5 col-sm-10">
+ <button type="submit"   class="btn btn-secondary">Sign up</button>
+</div>
 </form>
-
-
 	</div>
-	
-	
+
+
 	</div>
 </body>
 </html>

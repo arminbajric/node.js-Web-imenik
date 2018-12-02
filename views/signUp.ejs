@@ -9,21 +9,21 @@
   // Listen to click event on the submit button
   $('#potvrda').click(function (e) {
 
-    e.preventDefault();
+
 
     var email = $('#email').val();
 
-	  
+
 
     $.post('/forma', {
-      
+
       email: email
     }).complete(function() {
         console.log('Success');
       });
   });
 });</script>
-	
+
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="/portfolio.css">
@@ -45,14 +45,14 @@
 				<th width="22.5%" div id="navi2" onClick="otvoriLink('https://github.com/arminbajric')" onMouseOver="promjeniBoju(this.id,'brown');" onMouseOut="vratiBoju(this.id,'brown');" ><a class="link" href="https://github.com/arminbajric" id="link3">GitHub profil</a></th>
 				<th width="22.5%" div id="navi3" onMouseOver="promjeniBoju(this.id,'brown');" onMouseOut="vratiBoju(this.id,'brown');" ><a class="link" href="mailto:bajric.armin.3t1@gmail.com" id="link4">Email me</a></th>
 			</tr>
-		
-			
+
+
 		</table>
 		</th>
 		</tr>
 		</table>
 </center>
-	
+
 <table align="center" width="100%" style="background-color: lightslategray;" >
 <tr width="90%" align="center">
 <th>
@@ -77,11 +77,11 @@
 		<th class="bio" width="22.5%" height="50px">Osnovnu školu ,od prvog do četvrtog razreda završio u Područnoj školi u Gornjim Dubravama.Od petog do osmog razreda u OŠ "Dubrave" u Donjim Dubravama 2008 godine.</th>
 		<th class="bio" width="22.5%" height="50px">Od 2008. do 2012. godine pohađao ETŠ Tuzla u Tuzli te stekao zvanje IT tehničar sa odličnim uspjehom iz maturskog rada naziva ADO.Net klase sa praktičnom primjenom na aplikaciji za Rent a car.</th>
 		<th class="bio" width="22.5%" height="50px">Od 2013. godine student Rudarsko - geološko - građevinskog fakulteta u Tuzli.Odsjek Građevinarstvo.Trenutno apsolvent pomenutog fakulteta.</th>
-		
+
 	</tr>
 </table>
 </center>
-	<hr> 
+	<hr>
 	<div style="background-color:lightslategray">
 	<center>
 	<table width="80%">
@@ -135,7 +135,7 @@
 	<div id="about">
 		<p  style="padding-left: 20px">O meni... </p>
 		<p  style="padding-left: 50px">Student i aspolvent Rudarsko-geološko-građevinskog fakulteta u Tuzli na odsjeku za građevinarstvo.Veliki pobornik svih tehničkih nauka i ogranaka.Ukratko zaljublenik u sve stvari sa naglaskom na logiku.Trenutno pohađam BILD IT training naprednu obuku u Doboju.Poznavalac velikog broja tehnologija u IT sektoru što se pored programiranja odnosi i na područje automatike i robotike,te elektronike. </p>
-		
+
 	</div>
 	</center>
 	</div>

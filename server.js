@@ -1,11 +1,14 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-
+app.set('view engine', 'ejs');
+var url = require('url');
+app.use(express.static('views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 var path = require('path');
  var cookie = require('cookie');
 	app.use(express.static('pages'));
+  app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'pages')));
 app.get('/', (req, res) => {
@@ -24,7 +27,7 @@ console.log(email);
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "admin",
   database: "webimenik"
 });
 	var post  = {email: email, password :password};
@@ -38,31 +41,65 @@ var fields;
 		  {
 			  if(result.length>0)
 				 {
-					
-				{		 
+
+
 					console.log("radiiiiiiiii");
-				 res.redirect('/user');
-					
-				}
-				} 
+          //Configure your whitelist
+    //   cookie.serialize('Email', String(req.body.email), {
+      //        httpOnly: true,
+      //        maxAge: 60 * 60 * 24 * 7 // 1 week
+      //      });
+
+
+            res.redirect('/userForm');
+
+
+
 		  }
-	  
+}
     console.log(result);
   });
 });
-	app.get('/user', function(req, res) {
-		res.type('html');
-    res.send(`${__dirname}/userForm.html`);
-});
-	res.setHeader('Set-Cookie', cookie.serialize('Email', String(req.body.email), {
-      httpOnly: true,
-      maxAge: 60 * 60 * 24 * 7 // 1 week
-    }));
+
+
 // <- true
- 
+
 
 });
+var baseHostname = "http://localhost:3000";
+var redirectMapping = {
+    'userPage': '/userForm.html',
 
+}
+
+//Create a function to validate whitelist
+function validateRedirect(key) {
+    if(key in redirectMapping) {
+
+        return redirectMapping[key];
+    }else{
+
+        return false;
+    }
+}
+
+app.get('/userForm', function (req, res, next) {
+
+
+res.end(res.render('userForm'));
+
+  }
+);
+app.get('/signUp', function (req, res, next) {
+
+
+res.end(res.render('signUp'));
+
+  }
+);
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!")
+});
 app.listen(3000, () => {
   console.log("Started on http://localhost:3000");
 });
