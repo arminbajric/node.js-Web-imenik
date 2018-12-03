@@ -12,24 +12,25 @@ var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'pages')));
 app.get('/', (req, res) => {
+
   res.sendFile(`${__dirname}/index.html`);
 
 });
+var mysql = require('mysql');
 
 app.post('/userForm', (req, res) => {
- // const email = {email:JSON.stringify(req.body.email)};
-//	const password= {password:JSON.stringify(req.body.password)};
+
 	const email=req.body.email;
 	const password=req.body.password;
- var mysql = require('mysql');
+
 console.log(email);
 	console.log(password);
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "admin",
-  database: "webimenik"
-});
+  var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "admin",
+    database: "webimenik"
+  });
 	var post  = {email: email, password :password};
 var fields;
 	 con.connect(function(err) {
@@ -42,13 +43,10 @@ var fields;
 			  if(result.length>0)
 				 {
 
-
-					console.log("radiiiiiiiii");
-          //Configure your whitelist
-    //   cookie.serialize('Email', String(req.body.email), {
-      //        httpOnly: true,
-      //        maxAge: 60 * 60 * 24 * 7 // 1 week
-      //      });
+      cookie.serialize('Email', String(req.body.email), {
+             httpOnly: true,
+             maxAge: 60 * 60 * 24 * 7 // 1 week
+            });
 
 
             res.redirect('/userForm');
@@ -57,31 +55,20 @@ var fields;
 
 		  }
 }
-    console.log(result);
+
   });
 });
 
 
-// <- true
+
 
 
 });
-var baseHostname = "http://localhost:3000";
-var redirectMapping = {
-    'userPage': '/userForm.html',
 
-}
 
-//Create a function to validate whitelist
-function validateRedirect(key) {
-    if(key in redirectMapping) {
 
-        return redirectMapping[key];
-    }else{
 
-        return false;
-    }
-}
+
 
 app.get('/userForm', function (req, res, next) {
 
@@ -94,6 +81,43 @@ app.get('/signUp', function (req, res, next) {
 
 
 res.end(res.render('signUp'));
+
+  }
+);
+app.post('/newUser',function (req,res)
+{
+  const email=req.body.email;
+	const password=req.body.password;
+  const ime=req.body.ime;
+	const prezime=req.body.prezime;
+  var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "admin",
+    database: "webimenik"
+  });
+	var post  = {email: email, password :password};
+var fields;
+	 con.connect(function(err) {
+  if (err) {throw err;}
+  con.query("INSERT INTO  korisnik SET email='"+email+"' , password='"+password+"' , ime='"+ime+"' , prezime='"+prezime+"'", function (err, result, fields) {
+    if (err)
+		{throw err;}
+	  else
+		  {
+
+            res.redirect('/login');
+		  
+}
+
+  });
+
+});
+});
+app.get('/login', function (req, res, next) {
+
+
+res.end(res.render('index'));
 
   }
 );
