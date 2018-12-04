@@ -73,7 +73,31 @@ var fields;
 app.get('/userForm', function (req, res, next) {
 
 
-res.end(res.render('userForm'));
+//res.end(res.render('userForm'));
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "admin",
+  database: "webimenik"
+});
+
+var fields;
+ con.connect(function(err) {
+if (err) {throw err;}
+con.query("SELECT * FROM  imenici_sadrzaj  ", function (err, result, fields) {
+  if (err)
+  {throw err;}
+else {
+  {
+    var obj = {};
+    obj = {userForm: result};
+            res.render('userForm', obj);
+  }
+}
+
+});
+});
+
 
   }
 );
@@ -107,7 +131,7 @@ var fields;
 		  {
 
             res.redirect('/login');
-		  
+
 }
 
   });
@@ -122,7 +146,7 @@ res.end(res.render('index'));
   }
 );
 app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
+  res.status(404).send("Greška .Nije pronađeno!")
 });
 app.listen(3000, () => {
   console.log("Started on http://localhost:3000");

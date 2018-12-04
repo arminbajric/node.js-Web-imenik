@@ -1,11 +1,56 @@
 <!doctype html>
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="imenik.css">
+<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="imenik.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Korisnički panel</title>
+
 </head>
 
 <body>
-  <p>Jeeeesss</p>
+
+<img id="pozadina"/>
+	 <table class="table table-striped">
+   <thead> <tr> <th>ID kontakta</th> <th>Ime</th> <th>Prezime</th><th>Email</th><th>Adresa</th><th>Broj telefona </th></tr> </thead>
+  <tbody>
+    <% userForm.forEach(function (imenici_sadrzaj) { %>
+    <tr>
+      <td class="ID kontakta-td"><%=userForm[0].idimenici_sadrzaj%></td>
+      <td class="Ime-td"><%=userForm[0].ime%></td>
+      <td class="Prezime-td"><%=userForm[0].prezime%></td>
+      <td class="Email-td"><%=userForm[0].email%></td>
+      <td class="Adresa-td"><%=userForm[0].adresa%></td>
+      <td class="Broj telefona-td"><%=userForm[0].broj_telefona%></td>
+    </tr>
+    <tr>
+     <td class="ID kontakta-td"><%=userForm[0].idimenici_sadrzaj%></td>
+      <td class="Ime-td"><%=userForm[0].ime%></td>
+      <td class="Prezime-td"><%=userForm[0].prezime%></td>
+      <td class="Email-td"><%=userForm[0].email%></td>
+      <td class="Adresa-td"><%=userForm[0].adresa%></td>
+      <td class="Broj telefona-td"><%=userForm[0].broj_telefona%></td
+    </tr>
+    <tr>
+      <td class="ID kontakta-td"></td>
+      <td class="Ime-td"></td>
+      <td class="Prezime-td"></td>
+      <td class="Email-td"></td>
+      <td class="Adresa-td"></td>
+      <td class="Broj telefona-td"></td>
+    </tr>
+	  <% }) %>
+  </tbody>
+  </table>
+</div>
+
 </body>
 </html>
