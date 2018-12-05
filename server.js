@@ -42,11 +42,18 @@ var fields;
 		  {
 			  if(result.length>0)
 				 {
+           var obj=JSON.parse(result[0].idkorisnik);
 
-      cookie.serialize('Email', String(req.body.email), {
-             httpOnly: true,
-             maxAge: 60 * 60 * 24 * 7 // 1 week
-            });
+           res.setHeader('Set-Cookie', cookie.serialize('ID korisnika', (obj), {
+       httpOnly: true,
+       maxAge: 60 * 60 * 24 * 7 // 1 week
+     }));
+     res.setHeader('Set-Cookie', cookie.serialize('Email', String(email), {
+ httpOnly: true,
+ maxAge: 60 * 60 * 24 * 7 // 1 week
+})
+);
+
 
 
             res.redirect('/userForm');
