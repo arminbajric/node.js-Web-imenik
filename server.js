@@ -44,14 +44,14 @@ var fields;
 				 {
            var obj=JSON.parse(result[0].idkorisnik);
 
-           res.setHeader('Set-Cookie', cookie.serialize('ID korisnika', (obj), {
-       httpOnly: true,
-       maxAge: 60 * 60 * 24 * 7 // 1 week
-     }));
-     res.setHeader('Set-Cookie', cookie.serialize('Email', String(email), {
- httpOnly: true,
+      
+     res.setHeader('Set-Cookie', cookie.serialize('Email', email, {
+ httpOnly: false,
  maxAge: 60 * 60 * 24 * 7 // 1 week
-})
+}),('Set-Cookie', cookie.serialize('ID korisnika', (obj), {
+httpOnly: false,
+maxAge: 60 * 60 * 24 * 7 // 1 week
+}))
 );
 
 

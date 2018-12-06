@@ -7,7 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="imenik.js"></script>
+<script src="imenikPanel.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,6 +19,30 @@
 <body>
 
 <img id="pozadina"/>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Web imenik</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Novi kontakt</a></li>
+      <li><a href="#">Izmjeni kontakt</a></li>
+      <li><a href="#">Briši kontakt</a></li>
+	   <li><a href="#">Novi imenik</a></li>
+    </ul>
+
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+	<ul class="nav navbar-nav navbar-right">
+      <li ><a  href="#"><span  class="glyphicon glyphicon-user"><p id="user"></p></span> </a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
 	 <table class="table table-condensed">
    <thead> <tr> <th>ID kontakta</th> <th>Ime</th> <th>Prezime</th><th>Email</th><th>Adresa</th><th>Broj telefona </th></tr> </thead>
   <tbody>
@@ -38,7 +62,7 @@
       <td class="Email-td"><%=userForm[0].email%></td>
       <td class="Adresa-td"><%=userForm[0].adresa%></td>
       <td class="Broj telefona-td"><%=userForm[0].broj_telefona%></td
-    </tr>
+    ></tr>
     <tr>
       <td class="ID kontakta-td"></td>
       <td class="Ime-td"></td>
